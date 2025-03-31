@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://2tcwxsqxbvqg"]
 
+[ext_resource type="Script" uid="uid://deojj3kagqqm7" path="res://scenes/level.gd" id="1_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://cdlxndtm8hu27" path="res://sprites/other/bg.png" id="1_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dil1fgprtivgv" path="res://scenes/player.tscn" id="2_w8frs"]
-[ext_resource type="PackedScene" uid="uid://hiq54wtotnf0" path="res://scenes/asteroid.tscn" id="3_w8frs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
 size = Vector2(35, 687)
@@ -11,6 +11,7 @@ size = Vector2(35, 687)
 size = Vector2(1130, 22)
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_mx8sn")
 
 [node name="BG" type="Sprite2D" parent="."]
 position = Vector2(578, 326.5)
@@ -21,13 +22,10 @@ texture = ExtResource("1_w7c3h")
 position = Vector2(686, 536)
 scale = Vector2(0.07, 0.07)
 
-[node name="Asteroid" parent="." instance=ExtResource("3_w8frs")]
-position = Vector2(424, 291)
-scale = Vector2(0.07, 0.07)
-
 [node name="Borders" type="Node2D" parent="."]
 
 [node name="LeftBorder" type="StaticBody2D" parent="Borders"]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/LeftBorder"]
 position = Vector2(-7.5, 325.5)
@@ -35,6 +33,7 @@ shape = SubResource("RectangleShape2D_w8frs")
 
 [node name="RightBorder" type="StaticBody2D" parent="Borders"]
 position = Vector2(1167, 2)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/RightBorder"]
 position = Vector2(-7.5, 325.5)
@@ -42,6 +41,7 @@ shape = SubResource("RectangleShape2D_w8frs")
 
 [node name="TopBorder" type="StaticBody2D" parent="Borders"]
 position = Vector2(538, -180)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/TopBorder"]
 position = Vector2(37, 170)
@@ -49,7 +49,16 @@ shape = SubResource("RectangleShape2D_mx8sn")
 
 [node name="BottomBorder" type="StaticBody2D" parent="Borders"]
 position = Vector2(538, -180)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/BottomBorder"]
 position = Vector2(37, 843)
 shape = SubResource("RectangleShape2D_mx8sn")
+
+[node name="AsteroidTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="Asteroids" type="Node2D" parent="."]
+
+[connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
