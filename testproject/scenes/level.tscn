@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://2tcwxsqxbvqg"]
+[gd_scene load_steps=7 format=3 uid="uid://2tcwxsqxbvqg"]
 
 [ext_resource type="Script" uid="uid://deojj3kagqqm7" path="res://scenes/level.gd" id="1_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://cdlxndtm8hu27" path="res://sprites/other/bg.png" id="1_w7c3h"]
@@ -9,6 +9,8 @@ size = Vector2(35, 687)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mx8sn"]
 size = Vector2(1130, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w8frs"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_mx8sn")
@@ -61,4 +63,10 @@ autostart = true
 
 [node name="Asteroids" type="Node2D" parent="."]
 
+[node name="Lasers" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w8frs")
+
+[connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]

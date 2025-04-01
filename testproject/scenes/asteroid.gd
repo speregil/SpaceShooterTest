@@ -11,7 +11,7 @@ var direction_x: float
 func _ready():
 	var rng := RandomNumberGenerator.new()
 	
-	var path: String = "res://sprites/planets/Planet_0" + str(rng.randi_range(1,6)) + ".png"
+	var path: String = "res://sprites/planets/Planet_0" + str(rng.randi_range(1,4)) + ".png"
 	$asteroidImage.texture = load(path)
 	
 	var width = get_viewport().get_visible_rect().size[0]
@@ -29,5 +29,5 @@ func _process(delta):
 	position += Vector2(direction_x,1.0) * speed * delta
 	rotation_degrees += rotation_speed * delta
 	
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	print("Body entered") # Replace with function body.

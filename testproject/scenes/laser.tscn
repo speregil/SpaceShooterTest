@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://db4n600d5sbun"]
+[gd_scene load_steps=4 format=3 uid="uid://db4n600d5sbun"]
 
+[ext_resource type="Script" uid="uid://dqdu6nku56x3v" path="res://scenes/laser.gd" id="1_a7dhc"]
 [ext_resource type="Texture2D" uid="uid://bgnr5n051mmmx" path="res://sprites/other/bullet.png" id="1_xmihv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a7dhc"]
@@ -9,6 +10,7 @@ height = 102.0
 [node name="Laser" type="Area2D"]
 collision_layer = 8
 collision_mask = 2
+script = ExtResource("1_a7dhc")
 
 [node name="LaserImage" type="Sprite2D" parent="."]
 rotation = -1.5708
