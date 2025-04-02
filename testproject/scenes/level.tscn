@@ -1,16 +1,38 @@
-[gd_scene load_steps=7 format=3 uid="uid://2tcwxsqxbvqg"]
+[gd_scene load_steps=11 format=3 uid="uid://2tcwxsqxbvqg"]
 
 [ext_resource type="Script" uid="uid://deojj3kagqqm7" path="res://scenes/level.gd" id="1_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://cdlxndtm8hu27" path="res://sprites/other/bg.png" id="1_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dil1fgprtivgv" path="res://scenes/player.tscn" id="2_w8frs"]
+[ext_resource type="Texture2D" uid="uid://dtstomr86tst0" path="res://sprites/other/star/Star1.png" id="3_klq6b"]
+[ext_resource type="Texture2D" uid="uid://bdofd6ssmsodv" path="res://sprites/other/star/Star2.png" id="4_b121j"]
+[ext_resource type="Texture2D" uid="uid://5psgdrjy5dsr" path="res://sprites/other/star/Star3.png" id="5_8c41q"]
+[ext_resource type="Texture2D" uid="uid://bvdqq4w8lbhhk" path="res://sprites/other/star/Star4.png" id="6_olg7q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w8frs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_klq6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b121j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8c41q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_olg7q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
 size = Vector2(35, 687)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mx8sn"]
 size = Vector2(1130, 22)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_w8frs"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_mx8sn")
@@ -19,6 +41,36 @@ script = ExtResource("1_mx8sn")
 position = Vector2(578, 326.5)
 scale = Vector2(1.875, 1.91944)
 texture = ExtResource("1_w7c3h")
+
+[node name="Stars" type="Node2D" parent="."]
+
+[node name="star1" type="AnimatedSprite2D" parent="Stars"]
+position = Vector2(316, 45)
+sprite_frames = SubResource("SpriteFrames_w8frs")
+autoplay = "default"
+frame = 1
+frame_progress = 0.456494
+
+[node name="star2" type="AnimatedSprite2D" parent="Stars"]
+position = Vector2(59, 500)
+sprite_frames = SubResource("SpriteFrames_w8frs")
+autoplay = "default"
+frame = 1
+frame_progress = 0.456494
+
+[node name="star3" type="AnimatedSprite2D" parent="Stars"]
+position = Vector2(1057, 379)
+sprite_frames = SubResource("SpriteFrames_w8frs")
+autoplay = "default"
+frame = 1
+frame_progress = 0.456494
+
+[node name="star4" type="AnimatedSprite2D" parent="Stars"]
+position = Vector2(330, 117)
+sprite_frames = SubResource("SpriteFrames_w8frs")
+autoplay = "default"
+frame = 1
+frame_progress = 0.456494
 
 [node name="Player" parent="." instance=ExtResource("2_w8frs")]
 position = Vector2(686, 536)
@@ -64,9 +116,6 @@ autostart = true
 [node name="Asteroids" type="Node2D" parent="."]
 
 [node name="Lasers" type="Node2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_w8frs")
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
