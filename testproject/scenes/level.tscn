@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://2tcwxsqxbvqg"]
+[gd_scene load_steps=12 format=3 uid="uid://2tcwxsqxbvqg"]
 
 [ext_resource type="Script" uid="uid://deojj3kagqqm7" path="res://scenes/level.gd" id="1_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://cdlxndtm8hu27" path="res://sprites/other/bg.png" id="1_w7c3h"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bdofd6ssmsodv" path="res://sprites/other/star/Star2.png" id="4_b121j"]
 [ext_resource type="Texture2D" uid="uid://5psgdrjy5dsr" path="res://sprites/other/star/Star3.png" id="5_8c41q"]
 [ext_resource type="Texture2D" uid="uid://bvdqq4w8lbhhk" path="res://sprites/other/star/Star4.png" id="6_olg7q"]
+[ext_resource type="PackedScene" uid="uid://dtv0lkepvlaik" path="res://scenes/ui.tscn" id="8_b121j"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w8frs"]
 animations = [{
@@ -41,6 +42,7 @@ script = ExtResource("1_mx8sn")
 position = Vector2(578, 326.5)
 scale = Vector2(1.875, 1.91944)
 texture = ExtResource("1_w7c3h")
+metadata/_edit_lock_ = true
 
 [node name="Stars" type="Node2D" parent="."]
 
@@ -114,8 +116,12 @@ wait_time = 0.25
 autostart = true
 
 [node name="Asteroids" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Lasers" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" parent="." instance=ExtResource("8_b121j")]
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]

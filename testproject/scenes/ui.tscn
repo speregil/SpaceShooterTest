@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtv0lkepvlaik"]
+
+[ext_resource type="Texture2D" uid="uid://dr7eb1qjr6c1n" path="res://sprites/other/life.png" id="1_nt7q6"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="SocoreContainer" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_right = 41.0
+offset_bottom = 103.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 9
+
+[node name="ScoreLabel" type="Label" parent="SocoreContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.105882, 0.705882, 0.933333, 1)
+theme_override_colors/font_outline_color = Color(0.925559, 0.954673, 0.998085, 1)
+theme_override_font_sizes/font_size = 36
+text = "1234
+"
+horizontal_alignment = 1
+
+[node name="LifesContainer" type="HBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = -46.0
+offset_right = 59.0
+offset_bottom = -6.0
+grow_vertical = 0
+theme_override_constants/separation = 12
+
+[node name="Life1" type="TextureRect" parent="LifesContainer"]
+layout_mode = 2
+texture = ExtResource("1_nt7q6")
+expand_mode = 3
+
+[node name="Life2" type="TextureRect" parent="LifesContainer"]
+layout_mode = 2
+texture = ExtResource("1_nt7q6")
+expand_mode = 3
+
+[node name="Life3" type="TextureRect" parent="LifesContainer"]
+layout_mode = 2
+texture = ExtResource("1_nt7q6")
+expand_mode = 3
+
+[node name="Life4" type="TextureRect" parent="LifesContainer"]
+layout_mode = 2
+texture = ExtResource("1_nt7q6")
+expand_mode = 3
+
+[node name="Life5" type="TextureRect" parent="LifesContainer"]
+layout_mode = 2
+texture = ExtResource("1_nt7q6")
+expand_mode = 3
