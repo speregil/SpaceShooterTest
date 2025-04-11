@@ -7,6 +7,8 @@ var speed: int
 @export var max_rotation_speed = 100
 var rotation_speed: int
 var direction_x: float
+
+signal collision
  
 func _ready():
 	var rng := RandomNumberGenerator.new()
@@ -30,4 +32,9 @@ func _process(delta):
 	rotation_degrees += rotation_speed * delta
 	
 func _on_body_entered(_body: Node2D) -> void:
-	print("Body entered") # Replace with function body.
+	collision.emit()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	area.queue_free()
+	queue_free()

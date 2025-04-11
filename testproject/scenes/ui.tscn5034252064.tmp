@@ -20,7 +20,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.105882, 0.705882, 0.933333, 1)
 theme_override_colors/font_outline_color = Color(0.925559, 0.954673, 0.998085, 1)
 theme_override_font_sizes/font_size = 36
-text = "0"
+text = "0
+"
 horizontal_alignment = 1
 
 [node name="LifesContainer" type="HBoxContainer" parent="."]

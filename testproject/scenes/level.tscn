@@ -35,7 +35,7 @@ size = Vector2(35, 687)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mx8sn"]
 size = Vector2(1130, 22)
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" groups=["ui"]]
 script = ExtResource("1_mx8sn")
 
 [node name="BG" type="Sprite2D" parent="."]
@@ -121,7 +121,7 @@ metadata/_edit_lock_ = true
 [node name="Lasers" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="CanvasLayer" parent="." instance=ExtResource("8_b121j")]
+[node name="UI" parent="." groups=["ui"] instance=ExtResource("8_b121j")]
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]

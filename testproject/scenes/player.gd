@@ -18,6 +18,7 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("shoot") and can_shoot:
 		laser.emit($LaserAnchor.global_position)
+		$LaserSound.play()
 		can_shoot = false
 		$LaserTimer.start()
 
